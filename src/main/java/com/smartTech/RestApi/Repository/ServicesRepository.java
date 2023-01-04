@@ -40,31 +40,4 @@ public interface ServicesRepository extends JpaRepository<Services,Long> {
     @Query("FROM Services ORDER BY views ASC")
     List<Services> findAllOrderByPopulationAsc();
 
-    @Query(value = "SELECT reviews FROM Services WHERE id=:id")
-    List<Reviews> findAllReviewsForServices(long id);
-
-    @Query(value = "SELECT review FROM Reviews review WHERE review.status=:status")
-     List<Reviews> getAllReviewsWithoutApproval(String status);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

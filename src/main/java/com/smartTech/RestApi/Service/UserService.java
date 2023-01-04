@@ -9,6 +9,7 @@ import java.util.Optional;
 public interface UserService {
 
     User getSingleUser(Long user_id );
+    User getSingleUserByPhone(String phone );
     public Optional<User> findUserByResetToken(String resetToken);
     List<User> getUsers();
     User saveUser(User user);

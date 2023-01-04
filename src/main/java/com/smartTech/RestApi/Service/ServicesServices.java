@@ -39,22 +39,11 @@ public interface ServicesServices {
 
        List<Services> findViewsWithSortingAsc();
 
-        Services addReviewToServices(long id, Reviews review);
-
-       List<Reviews>getAllReviewsForServices(long id);
 
       List <Services> getAllServicesWithPagingAndSorting(Pageable pageable);
 
-      Reviews approvedReview(long id , long review_id, String approved );
 
       List<Services>getAllServicesWithCat(Pageable pageable , int category_id  );
-
-      List <Reviews> getAllReviewsWithoutApproval();
-
-
-
-
-
 
 
 }

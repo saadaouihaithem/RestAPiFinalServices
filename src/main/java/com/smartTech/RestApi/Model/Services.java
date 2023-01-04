@@ -29,11 +29,11 @@ public class Services{
     private String title;
     @Column(name="title_ar")
     private String title_ar;
-   @Column(length = 65555)
-   @NotNull
+    @Column(length = 65555)
+    @NotNull
     private String description;
      @Column(length = 65555)
-    @NotNull
+     @NotNull
     private String description_ar;
     @Column(name="region_id")
     private String region_id;
@@ -72,18 +72,4 @@ public class Services{
     @UpdateTimestamp
     @Column(name="created_at")
     private LocalDateTime created_at;
-    public ArrayList<Image> images;
-    private double rating=0;
-    public void setAvgRating() {
-    if (reviews!=null)
-    this.rating=reviews.stream().map(Reviews::getStars).reduce(0.0,Double::sum)/reviews.size();
-    }
-  @JsonIgnore
-    private String serviceStatus= Status.PENDING.getServiceStatus();
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable
-    @JsonIgnore
-    private List<Reviews> reviews;
-    @ManyToOne(targetEntity = ServiceCategory.class)
-    private ServiceCategory serviceCategory;
    }

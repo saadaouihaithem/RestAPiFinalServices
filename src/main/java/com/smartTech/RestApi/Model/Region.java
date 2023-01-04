@@ -18,9 +18,7 @@ import static javax.persistence.FetchType.LAZY;
 @Table(name="region")
 public class Region{
 
-
     @Id
-
     @GeneratedValue(strategy= GenerationType.AUTO)
     public Long  region_id;
     public String name;

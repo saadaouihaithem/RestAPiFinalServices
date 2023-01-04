@@ -45,8 +45,10 @@ public class UserController {
     }
 
 
-
-
+    @GetMapping("/getSingleUserByPhone/{phone}")
+    public ResponseEntity<User>getSingleUserByPhone(@PathVariable String phone){
+        return new ResponseEntity<>(userService.getSingleUserByPhone(phone),HttpStatus.OK);
+    }
 
     @DeleteMapping("/User")
     public void deleuser(@RequestParam Long user_id) {
@@ -58,8 +60,4 @@ public class UserController {
 
         return new ResponseEntity<User>(userService.saveUser(user), HttpStatus.CREATED);
     }
-
-
-
-
 }

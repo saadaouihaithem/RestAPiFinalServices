@@ -33,15 +33,11 @@ public class Image {
     @Column(name = "Image_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Image_id;
-
     @Column(name = "name")
     private String name;
-
     @Column(name = "type")
     private String type;
-
     @Column(name = "image", unique = false, nullable = false, length = 1000)
     private byte[] image;
-
 
 }

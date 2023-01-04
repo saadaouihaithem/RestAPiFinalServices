@@ -2,9 +2,11 @@ package com.smartTech.RestApi.Controller;
 
 import com.smartTech.RestApi.Model.Reviews;
 import com.smartTech.RestApi.Model.Services;
+import com.smartTech.RestApi.Model.User;
 import com.smartTech.RestApi.Repository.ServicesRepository;
 import com.smartTech.RestApi.Service.ServicesServices;
 import com.smartTech.RestApi.dto.ApiResponse;
+import com.smartTech.RestApi.dto.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin(origins = "*")
 public class ServicesController {
 
     @Autowired
@@ -25,11 +28,10 @@ public class ServicesController {
 
     @GetMapping("/Services")
     public ApiResponse<List<Services>> getServices() {
-       List<Services>allServices=servicesServices.findViewsWithSortingAsc();
+       List<Services>allServices=servicesServices.getServices();
 
        return new ApiResponse<>(allServices.size(),allServices);
     }
-
 
 
     @GetMapping("/getSingleService/{id}")
@@ -119,22 +121,11 @@ public class ServicesController {
     }
 
 
-
 @GetMapping ("/Services/findViewsWithSorting")
    public ResponseEntity<List<Services>>findViewsWithSorting(@RequestParam int views){
         return new ResponseEntity<List<Services>>(servicesServices.findViewsWithSortingAsc(),HttpStatus.OK);
 
 }
-
-    @PostMapping("/{id}/reviews")
-    public Services addReview(@RequestBody Reviews review, @PathVariable long id){
-        return servicesServices.addReviewToServices(id, review);
-    }
-
-    @GetMapping("/{id}/reviews")
-    public List<Reviews> getAllReviewsForServices(@PathVariable long id){
-        return servicesServices.getAllReviewsForServices(id);
-    }
 
 
 

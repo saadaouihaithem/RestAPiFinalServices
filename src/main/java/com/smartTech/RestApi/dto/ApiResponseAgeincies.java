@@ -12,7 +12,4 @@ public class ApiResponseAgeincies<T> {
 
     public int status;
      T Agency ;
-
-
-
 }

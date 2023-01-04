@@ -15,6 +15,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 import static javax.persistence.FetchType.EAGER;
@@ -55,22 +56,15 @@ public class User {
     @JsonIgnore
     @Column(name = "reset_token")
     private String resetToken;
-    @OneToOne(cascade = CascadeType.ALL)
-    Phone phone;
+    @Column(name = "phone")
+    private String phone;
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"))
-          /*  inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")*/
+    @JoinTable(name = "user_roles",joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"))
     private Set<Role> roles;
-    private String image;
-
-    public void addRole(Role role){
-        roles.add(role);
-    }
-
-
-
+    @Column(name = "image")
+    @JsonIgnore
+    private String images;
 
 
 }

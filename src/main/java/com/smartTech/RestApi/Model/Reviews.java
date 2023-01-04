@@ -27,15 +27,11 @@ public class Reviews {
     @NotNull
     @Digits(integer = 1,fraction = 2,message = "Stars Not Valid")
     private double stars;
-
     @NotEmpty
     @NotBlank
     private String comment;
-
     @ManyToOne
     private Services services;
-
-
     private String status= Status.PENDING.getServiceStatus();
 
 }

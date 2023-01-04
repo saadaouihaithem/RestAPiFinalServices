@@ -40,6 +40,4 @@ public class Conpany {
     public String region_name;
     public String region_name_ar;
     public ArrayList<Image> images;
-
-
 }

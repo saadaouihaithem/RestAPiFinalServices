@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class ResponseAllProductsCateg extends Response{
+public class ResponseAllServicesCateg extends Response{
 
     private List<Services> services;
 }

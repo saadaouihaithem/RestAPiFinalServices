@@ -39,6 +39,21 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public User getSingleUserByPhone(String phone) {
+
+        Optional<User> user = Optional.ofNullable(userRepository.getSingleUserByPhone(phone));
+        if(user.isPresent()){
+
+            return user.get();
+        }
+        throw new RuntimeException("User not available");
+
+    }
+
+
+
+
+    @Override
     public List<User> getUsers() {
         return userRepository.findAll();
     }

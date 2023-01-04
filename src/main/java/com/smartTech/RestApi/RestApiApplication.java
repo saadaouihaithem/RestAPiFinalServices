@@ -21,17 +21,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 public class RestApiApplication extends SpringBootServletInitializer {
 
-
-
-
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(RestApiApplication.class, args);
 	}
-
-
-
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
@@ -41,11 +33,5 @@ public class RestApiApplication extends SpringBootServletInitializer {
 	PasswordEncoder passwordEncoder(){
 		return new BCryptPasswordEncoder();
 	}
-
-
-
-
-
-
 
 }
